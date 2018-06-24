@@ -1,0 +1,30 @@
+模拟器配置交换机
+
+回车默认进入一般配置模式
+
+enable		 进入特权用户模式
+
+config terminal	 进入全局配置模式	只要敲config按两下回车就行了
+
+exit		 退回上一个配置模式
+
+
+1、给交换机命名，首先是要这条命令是工作在哪个模式下面
+hostname 名字(在config terminal模式下)
+
+2、配置接口：给交换机的接口设置特定的参数。首先进入全局模式，进入对应接口的配置模式
+interface 接口编号如:fa0/1出现提示符
+
+shun(config)#interface fa0/1
+shun(config-if)#  //接下来进行的设置就会作用在这个接口上
+
+
+
+ss>enable			//进入特权配置模式
+ss#config terminal		//进入全局配置模式
+Enter configuration commands, one per line.  End with CNTL/Z.//提示信息
+ss(config)#hostname shun	//改变交换机名字
+shun(config)#interface fa0/6	//配置接口
+shun(config-if)#		//接下来进行的设置就会作用在这个接口上
+
+

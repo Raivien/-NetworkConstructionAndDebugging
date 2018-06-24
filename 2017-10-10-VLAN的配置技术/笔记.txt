@@ -1,0 +1,21 @@
+带外配置，拿出一台笔记本，注意要用配置线连接到笔记本的rs端口（就是不是黄色端口的那个口子），然后连接到交换机的console端口
+因为现实中交换机是不能输入命令的，所以要带外配置。进入笔记本的超级终端
+
+如果vlan10已经创建了，再创建的话就没有反应，因为以及实验报告
+
+Switch#config(两下回车)
+Switch(config)#vlan 10    创建一个vlan 10
+Switch(config-vlan)#name dxx	取名为dxx（电信系）
+
+Switch(config)#interface fa0/1	 管理这个端口
+Switch(config-if)#switchport access vlan 10	加入到10这个vlan
+
+#interface fa0/4,fa0/5,fa0/6		--配置多个端口到vlan
+Switch(config-if)#switchport access vlan 20
+
+Switch(config)#interface range fa0/4-6		--配置多个端口到vlan
+Switch(config-if)#switchport access vlan 20
+
+记得在特权模式下输入  wr   保存
+
+
